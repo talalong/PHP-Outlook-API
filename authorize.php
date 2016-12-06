@@ -6,7 +6,6 @@
   $redirectUri = 'http://localhost/PhpOutlookAPI/authorize.php';
   
   $tokens = oAuthService::getTokenFromAuthCode($auth_code, $redirectUri);
-  
   if ($tokens['access_token']) {
     $_SESSION['access_token'] = $tokens['access_token'];
     $_SESSION['refresh_token'] = $tokens['refresh_token'];
@@ -23,7 +22,7 @@
     $_SESSION['user_email'] = $user['EmailAddress'];
     
     // Redirect back to home page
-    header("Location: http://localhost/phpProject/index.php");
+    header("Location: http://localhost/PhpOutlookAPI/index.php");
   }
   else
   {

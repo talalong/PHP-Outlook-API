@@ -17,10 +17,11 @@ $redirectUri = 'http://localhost/PhpOutlookAPI/authorize.php';
             ?>
             <!-- User not logged in, prompt for login -->
             <p>Please <a href="<?php echo oAuthService::getLoginUrl($redirectUri) ?>">sign in</a> with your Office 365 or Outlook.com account.</p>
+            <?php oAuthService::getLoginUrl($redirectUri)  ?>
             <?php
         } else {
             $events = OutlookService::getEvents(oAuthService::getAccessToken($redirectUri), $_SESSION['user_email']);
-           // $messages = OutlookService::getMessages(oAuthService::getAccessToken($redirectUri), $_SESSION['user_email']);
+            // $messages = OutlookService::getMessages(oAuthService::getAccessToken($redirectUri), $_SESSION['user_email']);
             $userName = OutlookService::getUser(oAuthService::getAccessToken($redirectUri));
             var_dump($events);
             ?>
